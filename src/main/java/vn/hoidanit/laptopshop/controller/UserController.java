@@ -35,8 +35,4 @@ public class UserController {
     System.out.println("RunHere" + hoidanit);
     return "hello";
   }
-
 }
-
-// }
-//
