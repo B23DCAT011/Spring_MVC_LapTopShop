@@ -1,7 +1,17 @@
 package vn.hoidanit.laptopshop.domain;
 
+import jakarta.persistence.Entity;//javax
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity // JPA cung cap
 public class User {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
+
   private String email;
   private String password;
   private String fullName;
