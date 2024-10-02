@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Hỏi Dân IT - Dự án laptopshop" />
         <meta name="author" content="Hỏi Dân IT" />
-        <title>Product - B23DCAT011</title>
+        <title>Delete User - B23DCAT011</title>
         <link href="/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
       </head>
@@ -22,52 +22,37 @@
           <div id="layoutSidenav_content">
             <main>
               <div class="container-fluid px-4">
-                <h1 class="mt-4">Manager Product</h1>
+                <h1 class="mt-4">Manager product</h1>
                 <ol class="breadcrumb mb-4">
                   <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                  <li class="breadcrumb-item active">Product</li>
+                  <li class="breadcrumb-item active"><a href="/admin/product">Product</a></li>
+                  <li class="breadcrumb-item active">delete</li>
                 </ol>
                 <div class="mt-5">
                   <div class="row">
                     <div class="col-12 mx-auto">
                       <div class="d-flex justify-content-between">
-                        <h3>Table Product</h3>
-                        <a href="/admin/product/create" class="btn btn-primary">Create Product</a>
+                        <h3>Delete the product with id = ${id}</h3>
                       </div>
+
                       <hr />
-                      <table class="table table-bordered table-hover">
-                        <thead>
-                          <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Factory</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <c:forEach var="product" items="${products}">
-                            <tr>
-                              <th>${product.id}</th>
-                              <td>${product.name}</td>
-                              <td>${product.price}</td>
-                              <td>${product.factory}</td>
-                              <td>
-                                <a href="/admin/product/${product.id}" class="btn btn-success">View</a>
-                                <a href="/admin/product/update/${product.id}" class="btn btn-warning  mx-2">Update</a>
-                                <a href="/admin/product/delete/${product.id}" class="btn btn-danger">Delete</a>
-                              </td>
-                            </tr>
-
-                          </c:forEach>
-
-                        </tbody>
-                      </table>
-
+                      <div class="alert alert-danger">
+                        Are you sure to delete this product ?
+                      </div>
+                      <form:form method="post" action="/admin/product/delete" modelAttribute="newProduct">
+                        <div class="mb-3" style="display: none;">
+                          <label class="form-label">ID:</label>
+                          <form:input type="text" class="form-control" path="id" value="${id}" />
+                        </div>
+                        <button class="btn btn-danger">Confirm</button>
+                      </form:form>
 
                     </div>
+
                   </div>
+
                 </div>
+
               </div>
             </main>
             <jsp:include page="../layout/footer.jsp" />

@@ -8,6 +8,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 @Entity // JPA cung cap
 public class User {
@@ -16,9 +19,19 @@ public class User {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
 
+  // @NotNull
+  // @Email(message = "Email is not valid", regexp =
+  // "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
   private String email;
+
+  // @NotNull
+  // @Min(8)
   private String password;
+
+  // @NotNull
+  // @Min(2)
   private String fullName;
+
   private String address;
   private String phone;
 

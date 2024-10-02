@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Hỏi Dân IT - Dự án laptopshop" />
         <meta name="author" content="Hỏi Dân IT" />
-        <title>Product - B23DCAT011</title>
+        <title>Detail - B23DCAT011</title>
         <link href="/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
       </head>
@@ -25,49 +25,34 @@
                 <h1 class="mt-4">Manager Product</h1>
                 <ol class="breadcrumb mb-4">
                   <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                  <li class="breadcrumb-item active">Product</li>
+                  <li class="breadcrumb-item active"><a href="/admin/product">Product</a></li>
+                  <li class="breadcrumb-item active">view</li>
                 </ol>
                 <div class="mt-5">
                   <div class="row">
                     <div class="col-12 mx-auto">
                       <div class="d-flex justify-content-between">
-                        <h3>Table Product</h3>
-                        <a href="/admin/product/create" class="btn btn-primary">Create Product</a>
+                        <h3>Product Detail with id = ${id}</h3>
+
                       </div>
                       <hr />
-                      <table class="table table-bordered table-hover">
-                        <thead>
-                          <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Factory</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <c:forEach var="product" items="${products}">
-                            <tr>
-                              <th>${product.id}</th>
-                              <td>${product.name}</td>
-                              <td>${product.price}</td>
-                              <td>${product.factory}</td>
-                              <td>
-                                <a href="/admin/product/${product.id}" class="btn btn-success">View</a>
-                                <a href="/admin/product/update/${product.id}" class="btn btn-warning  mx-2">Update</a>
-                                <a href="/admin/product/delete/${product.id}" class="btn btn-danger">Delete</a>
-                              </td>
-                            </tr>
-
-                          </c:forEach>
-
-                        </tbody>
-                      </table>
-
+                      <div class="card" style="width: 60%;">
+                        <img class="card-img-top" src="/images/product/${product.image}" alt="Card img cap">
+                        <div class="card-header">
+                          Product information
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">ID:${id}</li>
+                          <li class="list-group-item">Name:${product.name}</li>
+                          <li class="list-group-item">Price:${product.price}</li>
+                        </ul>
+                      </div>
+                      <a class="btn btn-primary mt-3" href="/admin/product">Back</a>
 
                     </div>
                   </div>
                 </div>
+
               </div>
             </main>
             <jsp:include page="../layout/footer.jsp" />
